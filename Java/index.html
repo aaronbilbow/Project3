@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Population Vs Charging Station Locations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+    <style>
+        /* Add your CSS styles here */
+        /* CSS styles for Electric Vehicle Type markers */
+        .marker-ev-bev {
+            background-color: green;
+        }
+
+        .marker-ev-phev {
+            background-color: blue;
+        }
+
+        /* CSS styles for Fuel Type Code markers */
+           .marker-charge-0 {
+            background-color: red;
+        }
+
+        .marker-charge-1 {
+            background-color: yellow;
+        }
+
+        .marker-charge-2 {
+            background-color: orange;
+        }
+
+        #bar {
+            width: 900px;
+            /* Adjust the width to make it square */
+            height: 900px;
+            /* Adjust the height to make it square */
+        }
+
+        #sample-metadata {
+            border: 8px solid #751605;
+            /* Add a border to the chart */
+            width: 900px;
+            /* Adjust the width to make it square */
+            height: 900px;
+            /* Adjust the height to make it square */
+        }
+
+        #map-container {
+            height: 800px;
+            border: 2px solid #751605;
+            margin-top: 20px;
+        }
+
+        #selDataset {
+            margin-top: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1>EV Population Vs Charging Station Locations</h1>
+                <p>This page is used to compare EV ownership with Charge Station locations</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="well">
+                    <select id="selDataset" onchange="optionChanged(this.value)">
+                        <option value="ev">EV Location</option>
+                        <option value="charge">Charge Locations</option>
+                        <option value="both">Both Together</option>
+                    </select>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <!-- Add any additional content for the panel heading if needed -->
+                    </div>
+                    <!-- Add any additional content for the panel body if needed -->
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="map-container"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bubble"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Leaflet and Leaflet.markercluster libraries -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+    <!-- Include D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Include your project.js script -->
+    <script src="js/project.js"></script>
+
+    <!-- Include Plotly library if needed -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</body>
+
+</html>

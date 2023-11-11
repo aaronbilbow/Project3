@@ -1,0 +1,40 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+#map-container {
+  height: 800px; /* Set an appropriate height */
+  border: 2px solid #751605;
+  margin-top: 20px;
+}
+
+
+#legend-box {
+  background-color: rgba(255, 255, 255, 0.7); /* Background color with opacity */
+  border: 2px solid #333; /* Border with a solid color */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Spacing inside the box */
+  max-width: 200px; /* Set a maximum width for the box */
+}
+
+/* CSS styles for marker clusters */
+.marker-cluster-small {
+  background-color: rgba(181, 226, 140, 0.7);
+}
+
+.marker-cluster-medium {
+  background-color: rgba(241, 211, 87, 0.7);
+}
+
+.marker-cluster-large {
+  background-color: rgba(253, 156, 115, 0.7);
+}
+
+/* Additional styles for individual markers */
+/* ... */
