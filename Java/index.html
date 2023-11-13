@@ -51,7 +51,7 @@
         }
 
         #map-container {
-            height: 800px;
+            height: 900px;
             border: 2px solid #751605;
             margin-top: 20px;
         }
@@ -70,22 +70,7 @@
                 <p>This page is used to compare EV ownership with Charge Station locations</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="well">
-                    <select id="selDataset" onchange="optionChanged(this.value)">
-                        <option value="ev">EV Location</option>
-                        <option value="charge">Charge Locations</option>
-                        <option value="both">Both Together</option>
-                    </select>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <!-- Add any additional content for the panel heading if needed -->
-                    </div>
-                    <!-- Add any additional content for the panel body if needed -->
-                </div>
-            </div>
+        
             <div class="col-md-12">
                 <div id="map-container"></div>
             </div>
