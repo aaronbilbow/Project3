@@ -11,15 +11,19 @@ In addition to the map, the project includes insightful bar charts, line charts,
 ### Bar Charts
 EV Types
 Visual representation of the count of each Electric Vehicle (EV) type.
+![Bar Chart](https://github.com/aaronbilbow/Project3/blob/main/barchart.jpg)
+
 
 ## Line Chart
 ### EV Growth Over Time
 A line chart illustrating the growth of Electric Vehicles over time.
+![line Chart](https://github.com/aaronbilbow/Project3/blob/main/linechart.jpg)
+
 
 ## Pie Charts
 ### EV Type Distribution
 A pie chart presenting the distribution of Electric Vehicle types.
-
+![Pie Chart](https://github.com/aaronbilbow/Project3/blob/main/pie%20chart.jpg)
 
 
 
