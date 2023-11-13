@@ -16,8 +16,7 @@ from flask import Flask, jsonify
 # Database Setup
 engine = create_engine("sqlite:///project3.db")
 Base = automap_base()
-# inspector = inspect(engine)
-# inspector.get_table_names()
+
 
 # reflect the tables
 Base.prepare(autoload_with=engine)
@@ -38,14 +37,14 @@ def welcome():
     """All available api routes list."""
     return (
         f"Available Routes:<br/>"
-        f"/api/v1.0/Made_per_city<br/>"
+        f"/api/v1.0/Car_brands_per_city<br/>"
         f"/api/v1.0/Charge_stations_per_city<br/>"
         # f"/api/v1.0/stations_per_maker<br/>"
         f"/api/v1.0/all_stations_around_US<br/>"
     )
 
 
-@app.route("/api/v1.0/Made_per_city")
+@app.route("/api/v1.0/Car_brands_per_city")
 def city_make():
     # Create our session (link) from Python to the DB
     session = Session(engine)
@@ -80,11 +79,10 @@ def city_make():
 
             maker_list = []
             count_city = 0
-            # got_in = 0
-            # the following for check the city name and create dictionary
+            
             for cities2, maker in results:
                 if cities2 == city_name:
-                    # if count_city == 0 mean city doesn't exist so
+                    
                     # create a new dictionary with new city
                     if count_city == 0 and got_in == 0:
                         carxcity_dict = {}
@@ -95,28 +93,22 @@ def city_make():
                     # also check if the maker doesn't exist in the list
                     if len(maker_list) > 0:
                         count_made = 0
-                        # got_in = 1
+                        
                         for made in maker_list:
                             if made == maker:
                                 count_made = 1
                         if count_made == 0:
-                            # print(f"if made{made} = mark{maker}")
+                            
                             maker_list.append(maker)
                     else:
-                        # got_in = 1
+                        
                         maker_list.append(maker)
 
                     # the following if control to read just 50rows
                 if row_count == 100:
-                    # got_in = 0
-                    # carxcity_dict["Maker"] = maker_list
-                    # all_carxcities.append(carxcity_dict)
                     break
 
-                # print(all_carxcities)
-                # print("")
-                # print("*********cada 100********************")
-
+                
                 row_count += 1
         # the following if control to read just 50rows
         if got_in == 1:
@@ -124,15 +116,11 @@ def city_make():
             all_carxcities.append(carxcity_dict)
         if row_count_city == 50:
             break
-        print("")
-        print(all_carxcities)
-        print("")
-        print("-------segundo 50-----------")
-        print(row_count_city)
+        
         row_count_city += 1
 
     return jsonify(all_carxcities)
-    # return jsonify(already_add_city)
+
 
 
 @app.route("/api/v1.0/Charge_stations_per_city")
@@ -160,9 +148,9 @@ def stations_city():
         size_list = len(already_add_city)
 
         if size_list > 0:
-            print("esto es size_list >0")
+            # print("esto es size_list >0")
             for already_city_added in already_add_city:
-                print("for already_city_added")
+                # print("for already_city_added")
                 if already_city_added == city_name:
                     do_it = 1
 
@@ -176,7 +164,7 @@ def stations_city():
             # the following for check the city name and create dictionary
             for cities2, lat, long in results:
                 if cities2 == city_name:
-                    # if count_city == 0 mean city doesn't exist so
+                    
                     # create a new dictionary with new city
                     if count_city == 0:
                         stationxcities_dict = {}
@@ -185,11 +173,7 @@ def stations_city():
                     # the followin if insert a maker in a list
                     # also check if the maker doesn't exist in the list
                     if len(latlong_list) > 0:
-                        # count_made = 0
-                        # for made in latlong_list:
-                        #     if made == maker:
-                        #         count_made = 1
-                        # if count_made == 0:
+                        
                         location_charge = "lat:" + str(lat) + "lon:" + str(long)
                         # print(f"if made{made} = mark{maker}")
                         latlong_list.append(location_charge)
@@ -240,9 +224,9 @@ def stations_marker():
         city_name = makerd
         count_city = 0
         if size_list > 0:
-            print("esto es size_list >0")
+            # print("esto es size_list >0")
             for already_city_added in already_add_city:
-                print("for already_city_added")
+                # print("for already_city_added")
                 if already_city_added == city_name:
                     do_it = 1
 
@@ -266,11 +250,7 @@ def stations_marker():
                     # the followin if insert a maker in a list
                     # also check if the maker doesn't exist in the list
                     if len(latlong_list) > 0:
-                        # count_made = 0
-                        # for made in latlong_list:
-                        #     if made == maker:
-                        #         count_made = 1
-                        # if count_made == 0:
+                        
                         location_charge = "lat:" + str(lat) + "lon:" + str(long)
                         # print(f"if made{made} = mark{maker}")
                         latlong_list.append(location_charge)
@@ -291,18 +271,7 @@ def stations_marker():
             break
         row_count_city += 1
 
-    # Create a dictionary from the row data and append to a list of all_precipitations
-    # all_stationxmaker = []
-    # for make, lat, long in results:
-    #     stationxmaker_dict = {}
-    #     stationxmaker_dict["City"] = make
-
-    #     stationxmaker_dict["latitude"] = lat
-    #     stationxmaker_dict["longitude"] = long
-
-    #     all_stationxmaker.append(stationxmaker_dict)
-
-    # return jsonify(all_stationxmaker)
+    
     return jsonify(all_stationxcities)
 
 
