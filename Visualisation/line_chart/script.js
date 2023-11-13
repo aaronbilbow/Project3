@@ -6,7 +6,10 @@ d3.csv("merged_data1.csv").then(function(data) {
   // Filter data for EVs and Hybrids
   const filteredData = data.filter(d => d["Electric Vehicle Type"] === "Battery Electric Vehicle (BEV)" || d["Electric Vehicle Type"] === "Plug-in Hybrid Electric Vehicle (PHEV)");
 
-  filteredData.forEach(function(d) {
+  // Filter out the data for the year 2024
+  const filteredYearData = filteredData.filter(d => d["Model Year"] !== "2024");
+
+  filteredYearData.forEach(function(d) {
     const year = d["Model Year"];
     yearCounts[year] = (yearCounts[year] || 0) + 1;
   });
