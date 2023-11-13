@@ -3,9 +3,13 @@
 This project visualizes the distribution of Electric Vehicles (EVs) and Charging Stations on an interactive map. 
 In addition to the map, the project includes insightful bar charts, line charts, and pie charts providing a comprehensive view of the data.
 
-## Features
+## Dashboard
 	Interactive Map: Explore the geographic distribution of EVs and Charging Stations.
 	Marker Customization: Each marker is color-coded based on the EV type or charging station category.
+
+## Heat Map
+The Heat Map is used to represent the density or concentration of EV data points on a geographical map.
+![Heat Map](https://github.com/aaronbilbow/Project3/blob/main/heatmap.jpg)
 
 ## Data Visualization
 ### Bar Charts
