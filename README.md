@@ -19,7 +19,7 @@ A line chart illustrating the growth of Electric Vehicles over time.
 ## Pie Charts
 ### EV Type Distribution
 A pie chart presenting the distribution of Electric Vehicle types.
-
+![Pie Chart](https://github.com/aaronbilbow/Project3/blob/main/pie%20chart.jpg)
 
 
 
